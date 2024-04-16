@@ -16,10 +16,19 @@ const businesspermit = require("./routes/businesspermit");
 const storeaddress = require("./routes/storeaddress");
 const superadmin = require("./routes/superadmin");
 const errorMiddleware = require("./middlewares/errors");
+const cors = require("cors");
 
 app.use(cookieParser());
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
+
+app.use(
+    cors({
+      origin: "https://hydro-r97u.onrender.com",
+      credentials: true,
+    })
+  );
+  
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: true }));
 
